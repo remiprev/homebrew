@@ -14,7 +14,8 @@ class Vim <Formula
       "--disable-xim",
       "--disable-fontset",
       "--disable-xsmp",
-      "--enable-gui=no"
+      "--enable-gui=no",
+      "--enable-multibyte"
     ]
 
 		configure_args <<	"--enable-rubyinterp=/usr/bin/ruby" if ARGV.include? '--with-ruby'
