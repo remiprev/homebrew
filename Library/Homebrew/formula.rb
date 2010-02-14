@@ -187,6 +187,9 @@ class Formula
   # see gettext.rb for an example
   def keg_only?; false end
 
+  # if we want to only symlink specific files
+  def keg_only_except; false end
+
   # sometimes the clean process breaks things
   # skip cleaning paths in a formula with a class method like this:
   #   skip_clean [bin+"foo", lib+"bar"]
