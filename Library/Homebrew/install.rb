@@ -139,7 +139,14 @@ def install f
     show_summary_heading = true
   else
     begin
-      Keg.new(f.prefix).link
+      if f.keg_only_except
+        f.keg_only_except.each do |path|
+          path = 'bin/'+path
+          system 'ln', '-s', f.prefix+path, HOMEBREW_PREFIX+'bin/'
+        end
+      else
+        Keg.new(f.prefix).link
+      end
     rescue Exception => e
       onoe "The linking step did not complete successfully"
       puts "The package built, but is not symlinked into #{HOMEBREW_PREFIX}"
