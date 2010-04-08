@@ -24,6 +24,7 @@ class Ruby <Formula
             "--enable-shared" ]
 
     args << "--program-suffix=19" if ARGV.include? "--with-suffix"
+    args << "--with-iconv-dir=#{prefix}" if ARGV.include? "--with-iconv"
 
     system "./configure", *args
     system "make"
